@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ProductCrud.API.Data;
 
 namespace ProductCrud.API
 {
@@ -26,12 +28,18 @@ namespace ProductCrud.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            // Configuração DataContext Default para SQLLite usando classe Data.DataConext
+            services.AddDbContext<DataContext>(
+                options => options.UseSqlite(Configuration.GetConnectionString("Default"))
+            );
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProductCrud.API", Version = "v1" });
             });
+            
+            // Adiciona política cors para permitir que a requisao seja feita pelo front end
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +57,11 @@ namespace ProductCrud.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // Configura política cors permitindo headers, metodos e origens
+            app.UseCors(option => option.AllowAnyHeader()
+                                        .AllowAnyMethod()
+                                        .AllowAnyOrigin());
 
             app.UseEndpoints(endpoints =>
             {

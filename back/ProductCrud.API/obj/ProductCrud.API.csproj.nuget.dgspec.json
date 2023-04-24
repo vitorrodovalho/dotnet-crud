@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj": {}
+    "d:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj": {}
   },
   "projects": {
-    "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj": {
+    "d:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
+        "projectUniqueName": "d:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
         "projectName": "ProductCrud.API",
-        "projectPath": "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
+        "projectPath": "d:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\obj\\",
+        "outputPath": "d:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -21,7 +21,6 @@
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +39,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
@@ -51,7 +58,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -63,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
