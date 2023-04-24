@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import { Button, Modal, ModalFooter } from 'react-bootstrap';
-import api from '../../api/product';
+import api from '../../api/default';
 import ProductList from './ProductList';
 import ProductForm from './ProductForm';
 
