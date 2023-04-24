@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MSS0W5nxPjkI6zWVarsks61N4naX7ICyVL+SCQEHsa+1FhYcT10IpYIlQtACqNVHihb6T/oflBVuRpTAI3Viuw==",
+  "dgSpecHash": "jMAxchWjSaHtJ9UGDDtD0jtAoc2xtYtDR3aQW5Zhg8LCg9Cej7f7HMXnYF5Bc2hsOrGMaV93TuRpQa9xm4glyg==",
   "success": true,
-  "projectFilePath": "d:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
+  "projectFilePath": "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.10\\microsoft.data.sqlite.core.5.0.10.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",

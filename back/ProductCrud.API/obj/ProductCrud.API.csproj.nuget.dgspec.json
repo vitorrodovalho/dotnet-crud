@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj": {}
+    "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj": {}
   },
   "projects": {
-    "d:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj": {
+    "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
+        "projectUniqueName": "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
         "projectName": "ProductCrud.API",
-        "projectPath": "d:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
+        "projectPath": "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "d:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\obj\\",
+        "outputPath": "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -21,6 +21,7 @@
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,8 +59,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -71,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }
