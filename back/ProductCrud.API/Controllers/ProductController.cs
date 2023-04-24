@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ProductCrud.API.Data;
+using ProductCrud.API.Models;
 
 namespace ProductCrud.API.Controllers
 {
@@ -10,9 +13,9 @@ namespace ProductCrud.API.Controllers
     [Route("api/[controller]")]
     public class ProductController
     {
-        public DbContext _context;
+        public DataContext _context;
 
-        public ProductController(DbContext context)
+        public ProductController(DataContext context)
         {
             _context = context;            
         }
