@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Modal, ModalFooter } from 'react-bootstrap';
 import api from '../../api/default';
 import CategoryForm from './CategoryForm';
-import CategoryTable from './CategoryTable';
+import CategoryList from './CategoryList';
 
 export class Category extends Component {
     constructor(props) {
@@ -109,7 +109,7 @@ export class Category extends Component {
                     </Button>
                 </div>
 
-                <CategoryTable
+                <CategoryList
                     categories={categories}
                     getCategory={(id) => this.getCategory(id)}
                     handleConfirmModal={(id) => this.handleConfirmModal(id)}

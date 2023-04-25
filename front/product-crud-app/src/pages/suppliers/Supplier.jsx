@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import { Button, Modal, ModalFooter } from 'react-bootstrap';
 import api from '../../api/default';
 import SupplierForm from './SupplierForm';
-import SupplierTable from './SupplierTable';
+import SupplierList from './SupplierList';
 
 export class Supplier extends Component {
     constructor(props) {
@@ -107,7 +107,7 @@ export class Supplier extends Component {
                     </Button>
                 </div>
 
-                <SupplierTable
+                <SupplierList
                     suppliers={suppliers}
                     getSupplier={(id) => this.getSupplier(id)}
                     handleConfirmModal={(id) => this.handleConfirmModal(id)}

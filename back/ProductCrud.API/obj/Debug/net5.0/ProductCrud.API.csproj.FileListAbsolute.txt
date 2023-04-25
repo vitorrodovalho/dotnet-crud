@@ -110,3 +110,10 @@ C:\Users\vitor\Documents\Desenvolvimento\Asp Net\dotnet-crud\back\ProductCrud.AP
 C:\Users\vitor\Documents\Desenvolvimento\Asp Net\dotnet-crud\back\ProductCrud.API\obj\Debug\net5.0\ProductCrud.API.genruntimeconfig.cache
 C:\Users\vitor\Documents\Desenvolvimento\Asp Net\dotnet-crud\back\ProductCrud.API\bin\Debug\net5.0\Humanizer.dll
 C:\Users\vitor\Documents\Desenvolvimento\Asp Net\dotnet-crud\back\ProductCrud.API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Projetos\Estudo\ProductCrud\back\ProductCrud.API\bin\Debug\net5.0\Humanizer.dll
+D:\Projetos\Estudo\ProductCrud\back\ProductCrud.API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Projetos\Estudo\ProductCrud\back\ProductCrud.API\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projetos\Estudo\ProductCrud\back\ProductCrud.API\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+D:\Projetos\Estudo\ProductCrud\back\ProductCrud.API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\Projetos\Estudo\ProductCrud\back\ProductCrud.API\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\Projetos\Estudo\ProductCrud\back\ProductCrud.API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

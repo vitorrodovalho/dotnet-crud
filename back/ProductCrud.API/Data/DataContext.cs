@@ -16,5 +16,7 @@ namespace ProductCrud.API.Data
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<Supplier> Suppliers { get; set; }
+
+        public DbSet<User> Users { get; set; }
     }
 }

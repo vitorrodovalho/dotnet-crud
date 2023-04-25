@@ -2,6 +2,8 @@ using System;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ProductCrud.API.Data;
+using ProductCrud.API.Models;
 
 namespace ProductCrud.API.Controllers
 {
@@ -17,10 +19,10 @@ namespace ProductCrud.API.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginModel model)
+        public IActionResult Login([FromBody] User user)
         {
-            var user = GetUserFromDatabase(model.Email, model.Password);
-            if (user == null)
+            var userResponse = GetUserFromDatabase(user.Email, user.Password);
+            if (userResponse == null)
             {
                 return BadRequest(new { message = "E-mail ou senha inválidos." });
             }
@@ -31,14 +33,14 @@ namespace ProductCrud.API.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Register([FromBody] RegisterModel model)
+        public IActionResult Register([FromBody] User user)
         {
             // Adicione código para criar um novo usuário no banco de dados
             return Ok();
         }
 
         [HttpPost("refresh-token")]
-        public IActionResult RefreshToken([FromBody] RefreshTokenModel model)
+        public IActionResult RefreshToken([FromBody] User user)
         {
             // Adicione código para renovar o token JWT
             return Ok();
