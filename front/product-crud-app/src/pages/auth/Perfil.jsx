@@ -2,30 +2,15 @@ import { useState, useEffect } from 'react';
 import { Button, Col, Form, Row, Span } from 'react-bootstrap';
 import axios from 'axios';
 
-export default function Login() {
+export default function Perfil() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const handleLogin = async () => {
-        try {
-            const response = await axios.post('/api/auth/login', {
-                email,
-                password,
-            });
-
-            // Armazena o token JWT no armazenamento local do navegador
-            localStorage.setItem('token', response.data.token);
-        } catch (error) {
-            console.error(error);
-            alert('E-mail ou senha inválidos.');
-        }
-    };
 
     return (
         <>
             <Row className="justify-content-md-center mt-3">
                 <Col xs={5}>
-                    <h1 className="m-0 p-0 text-center">Login</h1>
+                    <h1 className="m-0 p-0 text-center">Perfil</h1>
                     <Form>
                         <Form.Group controlId="formBasicEmail" className="mt-2">
                             <Form.Label>Email</Form.Label>

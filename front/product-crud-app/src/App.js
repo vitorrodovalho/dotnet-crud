@@ -6,6 +6,7 @@ import { Product } from './pages/products/Product';
 import { Supplier } from './pages/suppliers/Supplier';
 import { Category } from './pages/categories/Category';
 import Login from './pages/auth/Login';
+import Perfil from './pages/auth/Perfil';
 import Register from './pages/auth/Register';
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
             <Route path="/products" component={Product} />
             <Route path="/categories" component={Category} />
             <Route path="/suppliers" component={Supplier} />
+            <Route path="/perfil" exact component={Perfil} />
             <Route component={PageNotFound} />
         </Switch>
     );
