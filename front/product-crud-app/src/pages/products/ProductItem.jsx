@@ -18,7 +18,7 @@ export default function ProductItem(props) {
                         className="btn btn-sm btn-outline-primary me-2"
                         onClick={() => props.getProduct(props.prod.id)}
                     >
-                        <i className="fas fa-pencil"></i> Editar
+                        <i className="fas fa-pen"></i> Editar
                     </button>
                     <button
                         className="btn btn-sm btn-outline-danger"

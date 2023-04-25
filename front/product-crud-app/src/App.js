@@ -1,8 +1,19 @@
 import './App.css';
-import { Product } from './components/product/Product';
+import { Switch, Route } from 'react-router-dom';
+import Dashboard from './pages/dashboard/Dashboard';
+import PageNotFound from './pages/PageNotFound';
+import { Product } from './pages/products/Product';
+import { Supplier } from './pages/suppliers/Supplier';
+import { Category } from './pages/categories/Category';
 
-function App() {
-    return <Product />;
+export default function App() {
+    return (
+        <Switch>
+            <Route path="/" exact component={Dashboard} />
+            <Route path="/products" component={Product} />
+            <Route path="/categories" component={Category} />
+            <Route path="/suppliers" component={Supplier} />
+            <Route component={PageNotFound} />
+        </Switch>
+    );
 }
-
-export default App;

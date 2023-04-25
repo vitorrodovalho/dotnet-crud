@@ -1,7 +1,7 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
 
-export default function SupplierTable(props) {
+export default function CategoryTable(props) {
     const columns = [
         { name: 'ID', selector: 'id', sortable: true },
         { name: 'Nome', selector: 'name', sortable: true },
@@ -11,9 +11,9 @@ export default function SupplierTable(props) {
                 <div>
                     <button
                         className="btn btn-sm btn-outline-primary me-2"
-                        onClick={() => props.getSupplier(row.id)}
+                        onClick={() => props.getCategory(row.id)}
                     >
-                        <i className="fas fa-pencil"></i> Editar
+                        <i className="fas fa-pen"></i> Editar
                     </button>
                     <button
                         className="btn btn-sm btn-outline-danger"
@@ -26,10 +26,10 @@ export default function SupplierTable(props) {
         },
     ];
 
-    const data = props.suppliers.map((sup) => {
+    const data = props.categories.map((cat) => {
         return {
-            id: sup.id,
-            name: sup.name,
+            id: cat.id,
+            name: cat.name,
         };
     });
 
