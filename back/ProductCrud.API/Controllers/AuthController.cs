@@ -14,6 +14,12 @@ namespace ProductCrud.API.Controllers
             _authService = authService;
         }
 
+        /// <summary>
+        /// Método que realiza o login do usuário, validando email e senha informados
+        /// Gera o token para a seção e retorna o token gerado
+        /// </summary>
+        /// <param name="user">Objeto usuário</param>
+        /// <returns></returns>
         [HttpPost("login")]
         public IActionResult Login([FromBody] User user)
         {
@@ -34,6 +40,12 @@ namespace ProductCrud.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Método que realiza o cadastro do usuário no banco de dados
+        /// Realiza a validação se já possui o email informado cadastrado
+        /// </summary>
+        /// <param name="user">Objeto usuário</param>
+        /// <returns></returns>
         [HttpPost("register")]
         public IActionResult Register([FromBody] User user)
         {

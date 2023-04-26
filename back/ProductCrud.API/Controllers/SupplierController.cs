@@ -19,6 +19,10 @@ namespace ProductCrud.API.Controllers
             _context = context;            
         }
 
+        /// <summary>
+        /// Retorna todos os fornecedores cadastrados
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -32,6 +36,11 @@ namespace ProductCrud.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Retorna um fornecedor referenciada pelo Id enviado na requisição
+        /// </summary>
+        /// <param name="id">Id fornecedor</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -48,6 +57,11 @@ namespace ProductCrud.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra o fornecedor enviada no corpo da requisição
+        /// </summary>
+        /// <param name="supplier">Objeto fornecedor</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post (Supplier supplier)
         {
@@ -65,6 +79,12 @@ namespace ProductCrud.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza o fornecedor referenciado pelo Id informado
+        /// </summary>
+        /// <param name="id">Id fornecedor</param>
+        /// <param name="supplier">Objeto fornecedor</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Put (int id, Supplier supplier)
         {
@@ -85,6 +105,11 @@ namespace ProductCrud.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Deleta fornecedor referenciado pelo Id informado
+        /// </summary>
+        /// <param name="id">Id fornecedor</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete (int id)
         {

@@ -20,6 +20,10 @@ namespace ProductCrud.API.Controllers
             _context = context;            
         }
 
+        /// <summary>
+        /// Retorna todos as categorias cadastradas
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -33,6 +37,11 @@ namespace ProductCrud.API.Controllers
             }            
         }
 
+        /// <summary>
+        /// Retorna uma categoria referenciada pelo Id enviado na requisição
+        /// </summary>
+        /// <param name="id">Id categoria</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult Get (int id)
         {
@@ -49,6 +58,11 @@ namespace ProductCrud.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra a categoria enviada no corpo da requisição
+        /// </summary>
+        /// <param name="category">Objeto categoria</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post (Category category)
         {
@@ -56,7 +70,7 @@ namespace ProductCrud.API.Controllers
             {
                 _context.Categories.Add(category);
                 if(_context.SaveChanges() > 0)
-                    return Ok(_context.Categories.FirstOrDefault(cat => cat.Id == category.Id));
+                    return Created($"/api/category/{category.Id}", _context.Categories.FirstOrDefault(cat => cat.Id == category.Id));
                 else
                     return BadRequest(new { message = "Erro ao cadastrar categoria. " });
             }
@@ -67,6 +81,12 @@ namespace ProductCrud.API.Controllers
 
         }
 
+        /// <summary>
+        /// Atualiza a categoria referenciada pelo Id informado
+        /// </summary>
+        /// <param name="id">Id categoria</param>
+        /// <param name="category">Objeto categoria</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Put (int id, Category category)
         {
@@ -88,6 +108,11 @@ namespace ProductCrud.API.Controllers
 
         }
 
+        /// <summary>
+        /// Deleta categoria referenciada pelo Id informado
+        /// </summary>
+        /// <param name="id">Id categoria</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete (int id)
         {

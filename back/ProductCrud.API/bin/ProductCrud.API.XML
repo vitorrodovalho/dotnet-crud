@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProductCrud.API</name>
+    </assembly>
+    <members>
+        <member name="M:ProductCrud.API.Controllers.AuthController.Login(ProductCrud.API.Models.User)">
+            <summary>
+            Método que realiza o login do usuário, validando email e senha informados
+            Gera o token para a seção e retorna o token gerado
+            </summary>
+            <param name="user">Objeto usuário</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.AuthController.Register(ProductCrud.API.Models.User)">
+            <summary>
+            Método que realiza o cadastro do usuário no banco de dados
+            Realiza a validação se já possui o email informado cadastrado
+            </summary>
+            <param name="user">Objeto usuário</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.AuthService.GenerateJwtToken(ProductCrud.API.Models.User)">
+            <summary>
+            Gera o token para realizar o token utilizando o token informado
+            O token será utilizada também para validar se o login é válido
+            </summary>
+            <param name="user">Objeto usuário</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.AuthService.GetUserByEmail(System.String)">
+            <summary>
+            Retorna o usuário através do email informado
+            </summary>
+            <param name="email">Email usuário</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.AuthService.GetUserFromDatabase(System.String,System.String)">
+            <summary>
+            Retorna se possui um usuário com o email e senha informado
+            Utilizado no processo de login para validar cadastro
+            </summary>
+            <param name="email">Email usuário</param>
+            <param name="password">Senha usuário</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.AuthService.CreateUser(ProductCrud.API.Models.User)">
+            <summary>
+            Cria um usuário no banco de dados
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.AuthService.UpdateUser(ProductCrud.API.Models.User)">
+            <summary>
+            Atualiza o usuário no banco de dados
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.AuthService.DeleteUser(ProductCrud.API.Models.User)">
+            <summary>
+            Deleta o usuário do banco de dados
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.CategoryController.Get">
+            <summary>
+            Retorna todos as categorias cadastradas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.CategoryController.Get(System.Int32)">
+            <summary>
+            Retorna uma categoria referenciada pelo Id enviado na requisição
+            </summary>
+            <param name="id">Id categoria</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.CategoryController.Post(ProductCrud.API.Models.Category)">
+            <summary>
+            Cadastra a categoria enviada no corpo da requisição
+            </summary>
+            <param name="category">Objeto categoria</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.CategoryController.Put(System.Int32,ProductCrud.API.Models.Category)">
+            <summary>
+            Atualiza a categoria referenciada pelo Id informado
+            </summary>
+            <param name="id">Id categoria</param>
+            <param name="category">Objeto categoria</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.CategoryController.Delete(System.Int32)">
+            <summary>
+            Deleta categoria referenciada pelo Id informado
+            </summary>
+            <param name="id">Id categoria</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.ProductController.Get">
+            <summary>
+            Retorna todos os produtos cadastrados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.ProductController.Get(System.Int32)">
+            <summary>
+            Retorna um produto referenciada pelo Id enviado na requisição
+            </summary>
+            <param name="id">Id produto</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.ProductController.Post(ProductCrud.API.Models.Product)">
+            <summary>
+            Cadastra o produto enviada no corpo da requisição
+            </summary>
+            <param name="product">Objeto produto</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.ProductController.Put(System.Int32,ProductCrud.API.Models.Product)">
+            <summary>
+            Atualiza o produto referenciado pelo Id informado
+            </summary>
+            <param name="id">Id produto</param>
+            <param name="product">Objeto produto</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.ProductController.Delete(System.Int32)">
+            <summary>
+            Deleta produto referenciado pelo Id informado
+            </summary>
+            <param name="id">Id produto</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.SupplierController.Get">
+            <summary>
+            Retorna todos os fornecedores cadastrados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.SupplierController.Get(System.Int32)">
+            <summary>
+            Retorna um fornecedor referenciada pelo Id enviado na requisição
+            </summary>
+            <param name="id">Id fornecedor</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.SupplierController.Post(ProductCrud.API.Models.Supplier)">
+            <summary>
+            Cadastra o fornecedor enviada no corpo da requisição
+            </summary>
+            <param name="supplier">Objeto fornecedor</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.SupplierController.Put(System.Int32,ProductCrud.API.Models.Supplier)">
+            <summary>
+            Atualiza o fornecedor referenciado pelo Id informado
+            </summary>
+            <param name="id">Id fornecedor</param>
+            <param name="supplier">Objeto fornecedor</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductCrud.API.Controllers.SupplierController.Delete(System.Int32)">
+            <summary>
+            Deleta fornecedor referenciado pelo Id informado
+            </summary>
+            <param name="id">Id fornecedor</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

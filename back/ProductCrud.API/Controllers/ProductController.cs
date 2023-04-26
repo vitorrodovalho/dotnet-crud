@@ -20,6 +20,10 @@ namespace ProductCrud.API.Controllers
             _context = context;            
         }
 
+        /// <summary>
+        /// Retorna todos os produtos cadastrados
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -36,6 +40,11 @@ namespace ProductCrud.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Retorna um produto referenciada pelo Id enviado na requisição
+        /// </summary>
+        /// <param name="id">Id produto</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult Get (int id)
         {
@@ -55,6 +64,11 @@ namespace ProductCrud.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Cadastra o produto enviada no corpo da requisição
+        /// </summary>
+        /// <param name="product">Objeto produto</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post (Product product)
         {
@@ -73,6 +87,12 @@ namespace ProductCrud.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza o produto referenciado pelo Id informado
+        /// </summary>
+        /// <param name="id">Id produto</param>
+        /// <param name="product">Objeto produto</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Put (int id, Product product)
         {
@@ -93,6 +113,11 @@ namespace ProductCrud.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Deleta produto referenciado pelo Id informado
+        /// </summary>
+        /// <param name="id">Id produto</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete (int id)
         {
