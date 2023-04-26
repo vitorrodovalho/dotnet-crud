@@ -17,27 +17,40 @@ namespace ProductCrud.API.Controllers
         [HttpPost("login")]
         public IActionResult Login([FromBody] User user)
         {
-            var userResponse = _authService.GetUserFromDatabase(user.Email, user.Password);
-            if (userResponse == null)
+            try
             {
-                return BadRequest(new { message = "E-mail ou senha inválidos." });
+                var userResponse = _authService.GetUserFromDatabase(user.Email, user.Password);
+                if (userResponse == null)
+                {
+                    return BadRequest(new { message = "E-mail ou senha inválidos." });
+                }
+
+                var token = _authService.GenerateJwtToken(user);
+                return Ok(new { message = "Login realizado com sucesso", token });
             }
-
-            var token = _authService.GenerateJwtToken(user);
-
-            return Ok(new { token });
+            catch (System.Exception e)
+            {
+                return BadRequest(new { message = "Erro ao realizar login", error = e.Message });
+            }
         }
 
         [HttpPost("register")]
         public IActionResult Register([FromBody] User user)
         {
-            if (_authService.GetUserByEmail(user.Email) != null)
+            try
             {
-                return BadRequest(new { message = "O e-mail informado já está em uso." });
-            }
+                if (_authService.GetUserByEmail(user.Email) != null)
+                {
+                    return BadRequest(new { message = "O e-mail informado já está em uso." });
+                }
 
-            _authService.CreateUser(user);
-            return Ok();
+                _authService.CreateUser(user);
+                return Ok(new { message = "Usuário cadastrado com sucesso" });
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(new { message = "Erro ao cadastar usuário", error = e.Message });
+            }
         }
     }
 }

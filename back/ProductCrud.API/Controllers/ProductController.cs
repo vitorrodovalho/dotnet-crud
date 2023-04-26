@@ -100,13 +100,13 @@ namespace ProductCrud.API.Controllers
             {
                 var product = _context.Products.FirstOrDefault(prod => prod.Id == id);
                 if(product == null)
-                    return NotFound(new { message = "Voce esta tentando deletar um produto que nao existe");
+                    return NotFound(new { message = "Voce esta tentando deletar um produto que nao existe"});
 
                 _context.Remove(product);
                 if(_context.SaveChanges() > 0)
-                    return Ok("Produto excluído com sucesso");
+                     return Ok(new { message = "Produto excluído com sucesso"});
                 else
-                    return BadRequest(new { message = "Erro ao excluir produto");
+                    return BadRequest(new { message = "Erro ao excluir produto"});
             }
             catch (System.Exception e)
             {

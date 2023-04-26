@@ -96,7 +96,7 @@ namespace ProductCrud.API.Controllers
                     
                 _context.Remove(supplier);
                 if(_context.SaveChanges() > 0)
-                    return Ok("Fornecedor excluído com sucesso");
+                    return Ok(new { message = "Fornecedor excluído com sucesso"});
                 else
                     return BadRequest(new { message = "Erro ao excluir fornecedor"});
             }

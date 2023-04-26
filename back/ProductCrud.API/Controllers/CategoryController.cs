@@ -99,7 +99,7 @@ namespace ProductCrud.API.Controllers
                     
                 _context.Remove(category);
                 if(_context.SaveChanges() > 0)
-                    return Ok("Categoria excluído com sucesso");
+                    return Ok(new { message = "Categoria excluído com sucesso" });
                 else
                     return BadRequest(new { message = "Erro ao excluir categoria" });
             }
