@@ -23,60 +23,95 @@ namespace ProductCrud.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_context.Products
-                        .Include(p => p.Category)
-                        .Include(p => p.Supplier)
-                        .ToList());
+            try
+            {
+                return Ok(_context.Products
+                    .Include(p => p.Category)
+                    .Include(p => p.Supplier)
+                    .ToList());
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(new { message = "Erro ao buscar produtos", error = e.Message });
+            }
         }
 
         [HttpGet("{id}")]
         public IActionResult Get (int id)
         {
-            var product = _context.Products.Include(p => p.Category)
-                        .Include(p => p.Supplier)
-                        .ToList()
-                        .FirstOrDefault(prod => prod.Id == id);
-            if (product == null)
-                return NotFound("Nenhum produto encontrado para o Id informado");
-            return Ok(product);
+            try
+            {
+                var product = _context.Products.Include(p => p.Category)
+                    .Include(p => p.Supplier)
+                    .ToList()
+                    .FirstOrDefault(prod => prod.Id == id);
+                if (product == null)
+                    return NotFound(new { message = "Nenhum produto encontrado para o Id informado" });
+                return Ok(product);
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(new { message = "Erro ao buscar produto", error = e.Message });
+            }
         }
 
         [HttpPost]
         public IActionResult Post (Product product)
         {
-            product.CreatedAt = DateTime.Now;
-            _context.Products.Add(product);
-            if(_context.SaveChanges() > 0)
-                return Ok(_context.Products.FirstOrDefault(prod => prod.Id == product.Id));
-            else
-                return BadRequest("Erro ao cadastrar produto");
+            try
+            {
+                product.CreatedAt = DateTime.Now;
+                _context.Products.Add(product);
+                if(_context.SaveChanges() > 0)
+                    return Ok(_context.Products.FirstOrDefault(prod => prod.Id == product.Id));
+                else
+                    return BadRequest(new { message = "Erro ao cadastrar produto" });
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(new { message = "Erro ao cadastrar produto", error = e.Message });
+            }
         }
 
         [HttpPut("{id}")]
         public IActionResult Put (int id, Product product)
         {
-            if(product.Id != id)
-                return BadRequest("Voce esta tentando atualizar um produto errado");
+            try
+            {
+                if(product.Id != id)
+                    return BadRequest(new { message = "Voce esta tentando atualizar um produto errado" });
 
-            _context.Update(product);
-            if(_context.SaveChanges() > 0)
-                return Ok(_context.Products.FirstOrDefault(prod => prod.Id == id));
-            else
-                return BadRequest("Erro ao atualizar produto");
+                _context.Update(product);
+                if(_context.SaveChanges() > 0)
+                    return Ok(_context.Products.FirstOrDefault(prod => prod.Id == id));
+                else
+                    return BadRequest(new { message = "Erro ao atualizar produto" });
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(new { message = "Erro ao atualizar produto", error = e.Message });
+            }
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete (int id)
         {
-            var product = _context.Products.FirstOrDefault(prod => prod.Id == id);
-            if(product == null)
-                return NotFound("Voce esta tentando deletar um produto que nao existe");
+            try
+            {
+                var product = _context.Products.FirstOrDefault(prod => prod.Id == id);
+                if(product == null)
+                    return NotFound(new { message = "Voce esta tentando deletar um produto que nao existe");
 
-            _context.Remove(product);
-            if(_context.SaveChanges() > 0)
-                return Ok("Produto excluído com sucesso");
-            else
-                return BadRequest("Erro ao excluir produto");
+                _context.Remove(product);
+                if(_context.SaveChanges() > 0)
+                    return Ok("Produto excluído com sucesso");
+                else
+                    return BadRequest(new { message = "Erro ao excluir produto");
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(new { message = "Erro ao excluir produto", error = e.Message });
+            }
         }
     }
 }

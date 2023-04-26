@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vitor\\Documents\\Desenvolvimento\\Asp Net\\dotnet-crud\\back\\ProductCrud.API\\ProductCrud.API.csproj": {}
+    "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vitor\\Documents\\Desenvolvimento\\Asp Net\\dotnet-crud\\back\\ProductCrud.API\\ProductCrud.API.csproj": {
+    "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vitor\\Documents\\Desenvolvimento\\Asp Net\\dotnet-crud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
+        "projectUniqueName": "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
         "projectName": "ProductCrud.API",
-        "projectPath": "C:\\Users\\vitor\\Documents\\Desenvolvimento\\Asp Net\\dotnet-crud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
-        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vitor\\Documents\\Desenvolvimento\\Asp Net\\dotnet-crud\\back\\ProductCrud.API\\obj\\",
+        "projectPath": "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\ProductCrud.API.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\Projetos\\Estudo\\ProductCrud\\back\\ProductCrud.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
