@@ -11,7 +11,7 @@ namespace ProductCrud.API.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "O campo nome é obrigatório.")]
         [StringLength(100)]
         public string Name { get; set; }
 

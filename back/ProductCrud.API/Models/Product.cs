@@ -11,17 +11,17 @@ namespace ProductCrud.API.Models
     {
         public int Id { get; set; }
                 
-        [Required]
+        [Required (ErrorMessage = "O campo nome é obrigatório.")]
         [StringLength(100)]
         public string Name { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "O campo categoria é obrigatório.")]
         public int CategoryId { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "O campo fornecedor é obrigatório.")]
         public int SupplierId { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "O campo descrição é obrigatório.")]
         [StringLength(300)]
         public string Description { get; set; }
 

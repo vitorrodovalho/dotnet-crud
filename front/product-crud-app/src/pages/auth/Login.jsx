@@ -8,18 +8,17 @@ export default function Login() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+
         try {
             const response = await api.post('/auth/login', {
                 email,
                 password,
             });
 
-            // Armazena o token JWT no armazenamento local do navegador
             localStorage.setItem('token', response.data.token);
             window.location.href = '/';
         } catch (error) {
-            console.error(error);
-            alert('E-mail ou senha inválidos.');
+            alert(error.message);
         }
     };
 

@@ -53,29 +53,38 @@ export class Supplier extends Component {
 
     addSupplier = async (sup) => {
         const { suppliers } = this.state;
-        const response = await api.post('supplier', sup);
-        this.setState({
-            suppliers: [...suppliers, response.data],
-            showSupplierModal: false,
-        });
+        try {
+            const response = await api.post('supplier', sup);
+            this.setState({
+                suppliers: [...suppliers, response.data],
+                showSupplierModal: false,
+            });
+        } catch (error) {
+            alert(error.message);
+        }
     };
 
     updateSupplier = async (sup) => {
         const { suppliers } = this.state;
-        const response = await api.put(`supplier/${sup.id}`, sup);
-        const { id } = response.data;
-        this.setState({
-            suppliers: suppliers.map((item) =>
-                item.id === id ? response.data : item
-            ),
-            supplier: { id: 0 },
-            showSupplierModal: false,
-        });
+        try {
+            const response = await api.put(`supplier/${sup.id}`, sup);
+            const { id } = response.data;
+            this.setState({
+                suppliers: suppliers.map((item) =>
+                    item.id === id ? response.data : item
+                ),
+                supplier: { id: 0 },
+                showSupplierModal: false,
+            });
+        } catch (error) {
+            alert(error.message);
+        }
     };
 
     deleteSupplier = async (id) => {
         const { suppliers } = this.state;
-        if (await api.delete(`supplier/${id}`)) {
+        try {
+            await api.delete(`supplier/${id}`);
             const filteredSuppliers = suppliers.filter(
                 (supplier) => supplier.id !== id
             );
@@ -83,6 +92,8 @@ export class Supplier extends Component {
                 suppliers: [...filteredSuppliers],
                 smShowConfirmModal: false,
             });
+        } catch (error) {
+            alert(error.message);
         }
     };
 

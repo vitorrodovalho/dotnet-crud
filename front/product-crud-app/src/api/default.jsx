@@ -12,4 +12,36 @@ api.interceptors.request.use((config) => {
     return config;
 });
 
+api.interceptors.response.use(
+    (response) => {
+        return response;
+    },
+    (error) => {
+        if (
+            error.response &&
+            error.response.data &&
+            error.response.data.errors
+        ) {
+            const { errors } = error.response.data;
+            const errosArray = [];
+
+            for (let propriedade in errors) {
+                errosArray.push(...errors[propriedade]);
+            }
+
+            const mensagemErro = errosArray.join('\n');
+            throw new Error(mensagemErro);
+        } else {
+            if (
+                error.response &&
+                error.response.data &&
+                error.response.data.message
+            )
+                throw new Error(error.response.data.message);
+        }
+
+        throw error;
+    }
+);
+
 export default api;

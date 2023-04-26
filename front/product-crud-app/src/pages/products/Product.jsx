@@ -76,29 +76,38 @@ export class Product extends Component {
 
     addProduct = async (prod) => {
         const { products } = this.state;
-        const response = await api.post('product', prod);
-        this.setState({
-            products: [...products, response.data],
-            showProductModal: false,
-        });
+        try {
+            const response = await api.post('product', prod);
+            this.setState({
+                products: [...products, response.data],
+                showProductModal: false,
+            });
+        } catch (error) {
+            alert(error.message);
+        }
     };
 
     updateProduct = async (prod) => {
         const { products } = this.state;
-        const response = await api.put(`product/${prod.id}`, prod);
-        const { id } = response.data;
-        this.setState({
-            products: products.map((item) =>
-                item.id === id ? response.data : item
-            ),
-            product: { id: 0 },
-            showProductModal: false,
-        });
+        try {
+            const response = await api.put(`product/${prod.id}`, prod);
+            const { id } = response.data;
+            this.setState({
+                products: products.map((item) =>
+                    item.id === id ? response.data : item
+                ),
+                product: { id: 0 },
+                showProductModal: false,
+            });
+        } catch (error) {
+            alert(error.message);
+        }
     };
 
     deleteProduct = async (id) => {
         const { products } = this.state;
-        if (await api.delete(`product/${id}`)) {
+        try {
+            await api.delete(`product/${id}`);
             const filteredProducts = products.filter(
                 (product) => product.id !== id
             );
@@ -106,6 +115,8 @@ export class Product extends Component {
                 products: [...filteredProducts],
                 smShowConfirmModal: false,
             });
+        } catch (error) {
+            alert(error.message);
         }
     };
 

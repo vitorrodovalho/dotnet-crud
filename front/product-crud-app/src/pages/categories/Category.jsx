@@ -55,29 +55,38 @@ export class Category extends Component {
 
     addCategory = async (cat) => {
         const { categories } = this.state;
-        const response = await api.post('category', cat);
-        this.setState({
-            categories: [...categories, response.data],
-            showCategoryModal: false,
-        });
+        try {
+            const response = await api.post('category', cat);
+            this.setState({
+                categories: [...categories, response.data],
+                showCategoryModal: false,
+            });
+        } catch (error) {
+            alert(error.message);
+        }
     };
 
     updateCategory = async (cat) => {
         const { categories } = this.state;
-        const response = await api.put(`category/${cat.id}`, cat);
-        const { id } = response.data;
-        this.setState({
-            categories: categories.map((item) =>
-                item.id === id ? response.data : item
-            ),
-            category: { id: 0 },
-            showCategoryModal: false,
-        });
+        try {
+            const response = await api.put(`category/${cat.id}`, cat);
+            const { id } = response.data;
+            this.setState({
+                categories: categories.map((item) =>
+                    item.id === id ? response.data : item
+                ),
+                category: { id: 0 },
+                showCategoryModal: false,
+            });
+        } catch (error) {
+            alert(error.message);
+        }
     };
 
     deleteCategory = async (id) => {
         const { categories } = this.state;
-        if (await api.delete(`category/${id}`)) {
+        try {
+            await api.delete(`category/${id}`);
             const filteredCategories = categories.filter(
                 (category) => category.id !== id
             );
@@ -85,6 +94,8 @@ export class Category extends Component {
                 categories: [...filteredCategories],
                 smShowConfirmModal: false,
             });
+        } catch (error) {
+            alert(error.message);
         }
     };
 

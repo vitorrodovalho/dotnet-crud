@@ -16,7 +16,7 @@ export default function Register() {
                 password,
             });
 
-            if (response.status == 200) {
+            if (response.status === 200) {
                 alert('Usuário cadastrado com sucesso');
                 // Redireciona o usuário para a página de login
                 window.location.href = '/login';

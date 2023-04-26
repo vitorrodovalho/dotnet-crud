@@ -7,7 +7,6 @@ import { Supplier } from './pages/suppliers/Supplier';
 import { Category } from './pages/categories/Category';
 import Login from './pages/auth/Login';
 import Logout from './pages/auth/Logout';
-import Perfil from './pages/auth/Perfil';
 import Register from './pages/auth/Register';
 import PrivateRoute from './pages/auth/PrivateRoute';
 

@@ -10,11 +10,11 @@ namespace ProductCrud.API.Models
     {
         public int Id { get; set; }
         
-        [Required]
+        [Required (ErrorMessage = "O campo email é obrigatório.")]
         [StringLength(100)]
         public string Email { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "O campo senha é obrigatório.")]
         [StringLength(100)]
         public string Password { get; set; }
 
