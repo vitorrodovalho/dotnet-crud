@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductCrud.API.Data;
@@ -9,6 +10,7 @@ using ProductCrud.API.Models;
 
 namespace ProductCrud.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
@@ -77,7 +79,7 @@ namespace ProductCrud.API.Controllers
                 product.CreatedAt = DateTime.Now;
                 _context.Products.Add(product);
                 if(_context.SaveChanges() > 0)
-                    return Ok(_context.Products.FirstOrDefault(prod => prod.Id == product.Id));
+                    return Created($"/api/product/{product.Id}", _context.Products.FirstOrDefault(prod => prod.Id == product.Id));
                 else
                     return BadRequest(new { message = "Erro ao cadastrar produto" });
             }

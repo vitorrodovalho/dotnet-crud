@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProductCrud.API.Data;
 using ProductCrud.API.Models;
 
 namespace ProductCrud.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class SupplierController : ControllerBase
@@ -69,7 +71,7 @@ namespace ProductCrud.API.Controllers
             {
                 _context.Suppliers.Add(supplier);
                 if(_context.SaveChanges() > 0)                
-                    return Ok(_context.Suppliers.FirstOrDefault(sup => sup.Id == supplier.Id));
+                    return Created($"/api/supplier/{supplier.Id}", _context.Suppliers.FirstOrDefault(sup => sup.Id == supplier.Id));
                 else
                     return BadRequest(new { message = "Erro ao cadastrar fornecedor"});
             }
