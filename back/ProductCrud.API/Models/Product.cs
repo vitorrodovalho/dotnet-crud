@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProductCrud.API.Models
 {
@@ -14,8 +15,10 @@ namespace ProductCrud.API.Models
         [StringLength(100)]
         public string Name { get; set; }
 
+        [Required]
         public int CategoryId { get; set; }
 
+        [Required]
         public int SupplierId { get; set; }
 
         [Required]
@@ -23,6 +26,12 @@ namespace ProductCrud.API.Models
         public string Description { get; set; }
 
         public DateTime CreatedAt { get; set; }
+
+        [ForeignKey("CategoryId")]
+        public Category Category { get; set; }
+
+        [ForeignKey("SupplierId")]
+        public Supplier Supplier { get; set; }
         
         public Product()
         {

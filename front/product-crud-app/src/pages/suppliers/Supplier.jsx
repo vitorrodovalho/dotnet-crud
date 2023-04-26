@@ -16,10 +16,10 @@ export class Supplier extends Component {
     }
 
     handleSupplierModal = () => {
-        if (this.state.showSupplierModal) {
+        if (this.state.showSupplierModal)
             this.setState({ supplier: { id: 0 }, showSupplierModal: false });
-        }
-        this.setState({ showSupplierModal: !this.state.showSupplierModal });
+        else
+            this.setState({ showSupplierModal: !this.state.showSupplierModal });
     };
 
     handleConfirmModal = (id) => {

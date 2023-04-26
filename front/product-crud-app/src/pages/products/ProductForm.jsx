@@ -11,7 +11,6 @@ const productDefault = {
 };
 
 export default function ProductForm(props) {
-    console.log(props);
     const [product, setProduct] = useState(currentProduct());
 
     useEffect(() => {

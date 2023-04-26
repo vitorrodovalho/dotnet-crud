@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ProductCrud.API.Controllers;
 using ProductCrud.API.Data;
 
 namespace ProductCrud.API
@@ -40,6 +41,9 @@ namespace ProductCrud.API
             
             // Adiciona política cors para permitir que a requisao seja feita pelo front end
             services.AddCors();
+
+            // Registro do serviço AuthService
+            services.AddScoped<AuthService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

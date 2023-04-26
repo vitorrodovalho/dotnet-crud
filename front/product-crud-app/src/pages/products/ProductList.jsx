@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Button, FormControl, InputGroup } from 'react-bootstrap';
 
 export default function ProductList(props) {
@@ -43,8 +42,9 @@ export default function ProductList(props) {
                             <td>{product.id}</td>
                             <td>{product.name}</td>
                             <td>{product.description}</td>
-                            <td>{product.categoryId}</td>
-                            <td>{product.supplierId}</td>
+                            <td>{product.category.name}</td>
+                            <td>{product.supplier.name}</td>
+                            <td>{product.createdAt}</td>
                             <td>
                                 <div>
                                     <button

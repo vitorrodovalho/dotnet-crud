@@ -1,9 +1,9 @@
-import axios from 'axios';
+import api from '../../api/default';
 
 const RefreshToken = () => {
     const handleRefreshToken = async () => {
         try {
-            const response = await axios.post('/api/auth/refresh-token', {
+            const response = await api.post('/auth/refresh-token', {
                 token: localStorage.getItem('token'),
             });
 

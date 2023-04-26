@@ -1,20 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Button, Col, Form, Row, Span } from 'react-bootstrap';
-import axios from 'axios';
+import api from '../../api/default';
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = async () => {
+    const handleLogin = async (e) => {
+        e.preventDefault();
         try {
-            const response = await axios.post('/api/auth/login', {
+            const response = await api.post('/auth/login', {
                 email,
                 password,
             });
 
             // Armazena o token JWT no armazenamento local do navegador
             localStorage.setItem('token', response.data.token);
+            window.location.href = '/';
         } catch (error) {
             console.error(error);
             alert('E-mail ou senha inválidos.');
@@ -24,7 +26,7 @@ export default function Login() {
     return (
         <>
             <Row className="justify-content-md-center mt-3">
-                <Col xs={5}>
+                <Col md={5}>
                     <h1 className="m-0 p-0 text-center">Login</h1>
                     <Form>
                         <Form.Group controlId="formBasicEmail" className="mt-2">
@@ -57,6 +59,7 @@ export default function Login() {
                                 variant="primary"
                                 type="submit"
                                 className="mt-2"
+                                onClick={handleLogin}
                             >
                                 Entrar
                             </Button>
@@ -70,23 +73,6 @@ export default function Login() {
                     </div>
                 </Col>
             </Row>
-            {/*
-            <div>
-                <input
-                    type="email"
-                    placeholder="E-mail"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Senha"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button onClick={handleLogin}>Entrar</button>
-            </div>
-            */}
         </>
     );
 }

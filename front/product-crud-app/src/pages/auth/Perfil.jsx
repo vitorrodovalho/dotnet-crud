@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button, Col, Form, Row, Span } from 'react-bootstrap';
-import axios from 'axios';
+import api from '../../api/default';
 
 export default function Perfil() {
     const [email, setEmail] = useState('');
@@ -55,23 +55,6 @@ export default function Perfil() {
                     </div>
                 </Col>
             </Row>
-            {/*
-            <div>
-                <input
-                    type="email"
-                    placeholder="E-mail"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Senha"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button onClick={handleLogin}>Entrar</button>
-            </div>
-            */}
         </>
     );
 }

@@ -43,7 +43,7 @@ export default function CategoryList(props) {
                                     <button
                                         className="btn btn-sm btn-outline-primary me-2"
                                         onClick={() =>
-                                            props.getSupplier(category.id)
+                                            props.getCategory(category.id)
                                         }
                                     >
                                         <i className="fas fa-pen"></i> Editar

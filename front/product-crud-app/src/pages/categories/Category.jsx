@@ -16,10 +16,10 @@ export class Category extends Component {
     }
 
     handleCategoryModal = () => {
-        if (this.state.showCategoryModal) {
+        if (this.state.showCategoryModal)
             this.setState({ category: { id: 0 }, showCategoryModal: false });
-        }
-        this.setState({ showCategoryModal: !this.state.showCategoryModal });
+        else
+            this.setState({ showCategoryModal: !this.state.showCategoryModal });
     };
 
     handleConfirmModal = (id) => {

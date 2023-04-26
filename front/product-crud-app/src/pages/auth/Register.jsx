@@ -1,24 +1,27 @@
 import { useState, useEffect } from 'react';
 import { Button, Col, Form, Row, Span } from 'react-bootstrap';
-import axios from 'axios';
+import api from '../../api/default';
 
 export default function Register() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleRegister = async () => {
+    const handleRegister = async (e) => {
+        e.preventDefault();
         try {
-            await axios.post('/api/auth/register', {
+            const response = await api.post('/auth/register', {
                 name,
                 email,
                 password,
             });
 
-            // Redireciona o usuário para a página de login
-            //history.push('/login');
+            if (response.status == 200) {
+                alert('Usuário cadastrado com sucesso');
+                // Redireciona o usuário para a página de login
+                window.location.href = '/login';
+            } else alert('Erro ao criar a conta.');
         } catch (error) {
-            console.error(error);
             alert('Erro ao criar a conta.');
         }
     };
@@ -26,7 +29,7 @@ export default function Register() {
     return (
         <>
             <Row className="justify-content-md-center mt-3">
-                <Col xs={5}>
+                <Col md={5}>
                     <h1 className="m-0 p-0 text-center">Cadastrar-se</h1>
                     <Form>
                         <Form.Group controlId="formBasicEmail" className="mt-2">
@@ -34,8 +37,8 @@ export default function Register() {
                             <Form.Control
                                 type="nome"
                                 placeholder="Nome"
-                                value={email}
-                                required
+                                value={name}
+                                required={true}
                                 onChange={(e) => setName(e.target.value)}
                             />
                         </Form.Group>
@@ -48,8 +51,8 @@ export default function Register() {
                             <Form.Control
                                 type="email"
                                 placeholder="Email"
-                                value={password}
-                                required
+                                value={email}
+                                required={true}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </Form.Group>
@@ -63,7 +66,7 @@ export default function Register() {
                                 type="password"
                                 placeholder="Senha"
                                 value={password}
-                                required
+                                required={true}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </Form.Group>
@@ -73,6 +76,7 @@ export default function Register() {
                                 variant="primary"
                                 type="submit"
                                 className="mt-2"
+                                onClick={handleRegister}
                             >
                                 Cadastrar-se
                             </Button>
@@ -85,27 +89,6 @@ export default function Register() {
                     </div>
                 </Col>
             </Row>
-            {/*<div>
-            <input
-                type="text"
-                placeholder="Nome"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
-            <input
-                type="email"
-                placeholder="E-mail"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-                type="password"
-                placeholder="Senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <button onClick={handleRegister}>Criar conta</button>
-        </div>*/}
         </>
     );
 }

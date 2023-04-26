@@ -1,8 +1,4 @@
-using System;
-using System.Linq;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ProductCrud.API.Data;
 using ProductCrud.API.Models;
 
 namespace ProductCrud.API.Controllers
@@ -21,7 +17,7 @@ namespace ProductCrud.API.Controllers
         [HttpPost("login")]
         public IActionResult Login([FromBody] User user)
         {
-            var userResponse = GetUserFromDatabase(user.Email, user.Password);
+            var userResponse = _authService.GetUserFromDatabase(user.Email, user.Password);
             if (userResponse == null)
             {
                 return BadRequest(new { message = "E-mail ou senha inválidos." });
@@ -35,35 +31,13 @@ namespace ProductCrud.API.Controllers
         [HttpPost("register")]
         public IActionResult Register([FromBody] User user)
         {
-            // Adicione código para criar um novo usuário no banco de dados
-            return Ok();
-        }
-
-        [HttpPost("refresh-token")]
-        public IActionResult RefreshToken([FromBody] User user)
-        {
-            // Adicione código para renovar o token JWT
-            return Ok();
-        }
-
-        [Authorize]
-        [HttpGet("protected")]
-        public IActionResult Protected()
-        {
-            // Adicione código para retornar recursos protegidos
-            return Ok();
-        }
-
-        private User GetUserFromDatabase(string email, string password)
-        {
-            // Adicione código para buscar um usuário no banco de dados com base no e-mail e senha
-            return new User
+            if (_authService.GetUserByEmail(user.Email) != null)
             {
-                Id = 1,
-                Name = "Usuário de Exemplo",
-                Email = email,
-                Password = password
-            };
+                return BadRequest(new { message = "O e-mail informado já está em uso." });
+            }
+
+            _authService.CreateUser(user);
+            return Ok();
         }
     }
 }

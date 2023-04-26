@@ -11,7 +11,7 @@ namespace ProductCrud.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CategoryController
+    public class CategoryController : ControllerBase
     {
         public DataContext _context;
 
@@ -21,49 +21,55 @@ namespace ProductCrud.API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Category> Get()
+        public IActionResult Get()
         {
-            return _context.Categories;
+            return Ok(_context.Categories);
         }
 
         [HttpGet("{id}")]
-        public Category Get (int id)
+        public IActionResult Get (int id)
         {
-            return _context.Categories.FirstOrDefault(cat => cat.Id == id);
+            var category = _context.Products.FirstOrDefault(prod => prod.Id == id);
+            if (category == null)
+                return NotFound("Nenhum produto encontrado para o Id informado");
+            return Ok(category);
         }
 
         [HttpPost]
-        public Category Post (Category category)
+        public IActionResult Post (Category category)
         {
             _context.Categories.Add(category);
             if(_context.SaveChanges() > 0)
-                return _context.Categories.FirstOrDefault(cat => cat.Id == category.Id);
+                return Ok(_context.Categories.FirstOrDefault(cat => cat.Id == category.Id));
             else
-                throw new Exception("Voce nao conseguiu adicionar uma categoria");
+                return BadRequest("Erro ao adicionar categoria");
         }
 
         [HttpPut("{id}")]
-        public Category Put (int id, Category category)
+        public IActionResult Put (int id, Category category)
         {
             if(category.Id != id)
-            throw new Exception("Voce esta tentando atualizar uma categoria errada");
+                return BadRequest("Voce esta tentando atualizar uma categoria errada");
 
             _context.Update(category);
             if(_context.SaveChanges() > 0)
-                return _context.Categories.FirstOrDefault(cat => cat.Id == id);
+                return Ok(_context.Categories.FirstOrDefault(cat => cat.Id == id));
             else
-                return new Category();
+                return BadRequest("Erro ao atualizar categoria");
         }
 
         [HttpDelete("{id}")]
-        public bool Delete (int id)
+        public IActionResult Delete (int id)
         {
             var category = _context.Categories.FirstOrDefault(cat => cat.Id == id);
             if(category == null)
-                throw new Exception("Voce esta tentando deletar uma categoria que nao existe");
+                return BadRequest("Voce esta tentando deletar uma categoria que nao existe");
                 
             _context.Remove(category);
-            return _context.SaveChanges() > 0;
+            if(_context.SaveChanges() > 0)
+                return Ok("Categoria excluído com sucesso");
+            else
+                return BadRequest("Erro ao excluir categoria");
         }
     }
 }

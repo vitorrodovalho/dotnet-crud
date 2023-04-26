@@ -10,7 +10,7 @@ namespace ProductCrud.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class SupplierController
+    public class SupplierController : ControllerBase
     {
         public DataContext _context;
 
@@ -20,49 +20,55 @@ namespace ProductCrud.API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Supplier> Get()
+        public IActionResult Get()
         {
-            return _context.Suppliers;
+            return Ok(_context.Suppliers);
         }
 
         [HttpGet("{id}")]
-        public Supplier Get (int id)
+        public IActionResult Get(int id)
         {
-            return _context.Suppliers.FirstOrDefault(sup => sup.Id == id);
+            var supplier = _context.Suppliers.FirstOrDefault(sup => sup.Id == id);
+            if (supplier == null)
+                return NotFound("Nenhum fornecedor encontrado para o Id informado");
+            return Ok(supplier);
         }
 
         [HttpPost]
-        public Supplier Post (Supplier supplier)
+        public IActionResult Post (Supplier supplier)
         {
             _context.Suppliers.Add(supplier);
-            if(_context.SaveChanges() > 0)
-                return _context.Suppliers.FirstOrDefault(sup => sup.Id == supplier.Id);
+            if(_context.SaveChanges() > 0)                
+                return Ok(_context.Suppliers.FirstOrDefault(sup => sup.Id == supplier.Id));
             else
-                throw new Exception("Voce nao conseguiu adicionar um fornecedor");
+                return BadRequest("Erro ao cadastrar fornecedor");
         }
 
         [HttpPut("{id}")]
-        public Supplier Put (int id, Supplier supplier)
+        public IActionResult Put (int id, Supplier supplier)
         {
             if(supplier.Id != id)
-            throw new Exception("Voce esta tentando atualizar um fornecedor errado");
+                return BadRequest("Voce esta tentando atualizar um fornecedor errado");
 
             _context.Update(supplier);
             if(_context.SaveChanges() > 0)
-                return _context.Suppliers.FirstOrDefault(sup => sup.Id == id);
+                return Ok(_context.Suppliers.FirstOrDefault(sup => sup.Id == id));
             else
-                return new Supplier();
+                return BadRequest("Erro ao atualizar fornecedor");
         }
 
         [HttpDelete("{id}")]
-        public bool Delete (int id)
+        public IActionResult Delete (int id)
         {
             var supplier = _context.Suppliers.FirstOrDefault(sup => sup.Id == id);
             if(supplier == null)
-                throw new Exception("Voce esta tentando deletar um fornecedor que nao existe");
+                return NotFound("Voce esta tentando deletar um fornecedor que não existe");
                 
             _context.Remove(supplier);
-            return _context.SaveChanges() > 0;
+            if(_context.SaveChanges() > 0)
+                return Ok("Fornecedor excluído com sucesso");
+            else
+                return BadRequest("Erro ao excluir fornecedor");
         }
     }
 }

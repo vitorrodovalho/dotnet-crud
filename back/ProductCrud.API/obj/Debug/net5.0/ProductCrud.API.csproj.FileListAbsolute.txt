@@ -117,3 +117,8 @@ D:\Projetos\Estudo\ProductCrud\back\ProductCrud.API\bin\Debug\net5.0\Microsoft.I
 D:\Projetos\Estudo\ProductCrud\back\ProductCrud.API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 D:\Projetos\Estudo\ProductCrud\back\ProductCrud.API\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\Projetos\Estudo\ProductCrud\back\ProductCrud.API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\vitor\Documents\Desenvolvimento\Asp Net\dotnet-crud\back\ProductCrud.API\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\vitor\Documents\Desenvolvimento\Asp Net\dotnet-crud\back\ProductCrud.API\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\vitor\Documents\Desenvolvimento\Asp Net\dotnet-crud\back\ProductCrud.API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\vitor\Documents\Desenvolvimento\Asp Net\dotnet-crud\back\ProductCrud.API\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\vitor\Documents\Desenvolvimento\Asp Net\dotnet-crud\back\ProductCrud.API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
