@@ -22,31 +22,31 @@ Os cadastros são armazenados no arquivo "ProductCrud.db" para o banco de dados 
 
 ## Login
 
-![Alt Text](https://vitortoledo.com.br/gig/login.gif)
+![Alt Text](https://vitortoledo.com.br/gif/login.gif)
 
 Realiza o login do usuário validando no sistema se o email e senha informados existem no banco de dados e são válidos.
 
 ## Cadastro
 
-![Alt Text](https://vitortoledo.com.br/gig/cadastro.gif)
+![Alt Text](https://vitortoledo.com.br/gif/cadastro.gif)
 
 Realiza o cadastro do usuário com base no nome , email e senha informados no formulário.
 
 ## Produtos
 
-![Alt Text](https://vitortoledo.com.br/gig/produto.gif)
+![Alt Text](https://vitortoledo.com.br/gif/produto.gif)
 
 Gerencia o cadastro de produtos, relacionado com categoria e fornecedor informado.
 
 ## Categorias
 
-![Alt Text](https://vitortoledo.com.br/gig/categoria.gif)
+![Alt Text](https://vitortoledo.com.br/gif/categoria.gif)
 
 Gerencia o cadastro de categorias, relacionando com outra cetegoria.
 
 ## Fornecedores
 
-![Alt Text](https://vitortoledo.com.br/gig/fornecedor.gif)
+![Alt Text](https://vitortoledo.com.br/gif/fornecedor.gif)
 
 Gerencia o cadastro de fornecedor.
 
