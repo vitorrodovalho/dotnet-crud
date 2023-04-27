@@ -126,7 +126,3 @@ Para validar é feito a geração e comparação com uma chave utilizada para ge
 
 Foi utilizado o banco de dados SQLite junto com o Entity Framework para controlar e gerenciar os registros no banco.
 Também utilizou o recurso de migrations do EF para realizar a criação dos modelos e campos no banco de dados.
-
-```
-
-```
