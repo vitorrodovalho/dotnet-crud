@@ -56,26 +56,26 @@ API para gerenciamento de recursos do sistema, o padrão de envio dos dados e as
 
 Exemplo retorno GET produtos api.
 
-````json
+```json
 [
-	{
-		"id": 33,
-		"name": "Produto 1",
-		"categoryId": 4,
-		"supplierId": 2,
-		"description": "Descricacao Atualizada",
-		"createdAt": "2023-04-27T00:35:18.2414574",
-		"category": {
-			"id": 4,
-			"name": "Calçado",
-			"masterCategoryId": 0,
-			"masterCategory": null
-		},
-		"supplier": {
-			"id": 2,
-			"name": "Loja 1"
-		}
-	}
+    {
+        "id": 33,
+        "name": "Produto 1",
+        "categoryId": 4,
+        "supplierId": 2,
+        "description": "Descricacao Atualizada",
+        "createdAt": "2023-04-27T00:35:18.2414574",
+        "category": {
+            "id": 4,
+            "name": "Calçado",
+            "masterCategoryId": 0,
+            "masterCategory": null
+        },
+        "supplier": {
+            "id": 2,
+            "name": "Loja 1"
+        }
+    }
 ]
 ```
 
@@ -126,4 +126,7 @@ Para validar é feito a geração e comparação com uma chave utilizada para ge
 
 Foi utilizado o banco de dados SQLite junto com o Entity Framework para controlar e gerenciar os registros no banco.
 Também utilizou o recurso de migrations do EF para realizar a criação dos modelos e campos no banco de dados.
-````
+
+```
+
+```
