@@ -1,30 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
-import { Button, FormControl, InputGroup } from 'react-bootstrap';
 
 export default function CategoryList(props) {
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const handleInputChange = (e) => {
-        setSearchTerm(e.target.value);
-    };
-
-    const filteredCategories = props.categories.filter((category) => {
-        return Object.values(category)
-            .join(' ')
-            .toLowerCase()
-            .includes(searchTerm.toLowerCase());
-    });
-
     return (
         <>
-            <InputGroup className="mt-3 mb-3">
-                <InputGroup.Text>Buscar:</InputGroup.Text>
-                <FormControl
-                    onChange={handleInputChange}
-                    placeholder="Buscar pelo nome da categoria"
-                />
-            </InputGroup>
             <table className="table table-striped table-hover">
                 <thead className="table-dark mt-3">
                     <tr>
@@ -34,7 +12,7 @@ export default function CategoryList(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredCategories.map((category) => (
+                    {props.categories.map((category) => (
                         <tr key={category.id}>
                             <td>{category.id}</td>
                             <td>{category.name}</td>

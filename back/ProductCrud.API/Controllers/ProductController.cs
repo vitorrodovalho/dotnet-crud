@@ -10,7 +10,6 @@ using ProductCrud.API.Models;
 
 namespace ProductCrud.API.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
@@ -79,7 +78,8 @@ namespace ProductCrud.API.Controllers
                 product.CreatedAt = DateTime.Now;
                 _context.Products.Add(product);
                 if(_context.SaveChanges() > 0)
-                    return Created($"/api/product/{product.Id}", _context.Products.FirstOrDefault(prod => prod.Id == product.Id));
+                    return Created($"/api/product/{product.Id}", _context.Products.Include(p => p.Category)
+                    .Include(p => p.Supplier).FirstOrDefault(prod => prod.Id == product.Id));
                 else
                     return BadRequest(new { message = "Erro ao cadastrar produto" });
             }
@@ -105,7 +105,8 @@ namespace ProductCrud.API.Controllers
 
                 _context.Update(product);
                 if(_context.SaveChanges() > 0)
-                    return Ok(_context.Products.FirstOrDefault(prod => prod.Id == id));
+                    return Ok(_context.Products.Include(p => p.Category)
+                    .Include(p => p.Supplier).FirstOrDefault(prod => prod.Id == id));
                 else
                     return BadRequest(new { message = "Erro ao atualizar produto" });
             }

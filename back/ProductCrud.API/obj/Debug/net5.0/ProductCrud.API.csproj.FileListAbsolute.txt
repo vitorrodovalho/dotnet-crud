@@ -123,3 +123,4 @@ C:\Users\vitor\Documents\Desenvolvimento\Asp Net\dotnet-crud\back\ProductCrud.AP
 C:\Users\vitor\Documents\Desenvolvimento\Asp Net\dotnet-crud\back\ProductCrud.API\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\vitor\Documents\Desenvolvimento\Asp Net\dotnet-crud\back\ProductCrud.API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
 D:\Projetos\Estudo\ProductCrud\back\ProductCrud.API\bin\Debug\net5.0\ProductCrud.API.XML
+C:\Users\vitor\Documents\Desenvolvimento\Asp Net\dotnet-crud\back\ProductCrud.API\bin\Debug\net5.0\ProductCrud.API.XML

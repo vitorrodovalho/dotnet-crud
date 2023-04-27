@@ -22,27 +22,62 @@ Os cadastros são armazenados no arquivo "ProductCrud.db" para o banco de dados 
 
 ## Login
 
+![Alt Text](https://vitortoledo.com.br/gig/login.gif)
+
 Realiza o login do usuário validando no sistema se o email e senha informados existem no banco de dados e são válidos.
 
 ## Cadastro
+
+![Alt Text](https://vitortoledo.com.br/gig/cadastro.gif)
 
 Realiza o cadastro do usuário com base no nome , email e senha informados no formulário.
 
 ## Produtos
 
+![Alt Text](https://vitortoledo.com.br/gig/produto.gif)
+
 Gerencia o cadastro de produtos, relacionado com categoria e fornecedor informado.
 
 ## Categorias
 
+![Alt Text](https://vitortoledo.com.br/gig/categoria.gif)
+
 Gerencia o cadastro de categorias, relacionando com outra cetegoria.
 
 ## Fornecedores
+
+![Alt Text](https://vitortoledo.com.br/gig/fornecedor.gif)
 
 Gerencia o cadastro de fornecedor.
 
 ## API
 
 API para gerenciamento de recursos do sistema, o padrão de envio dos dados e as respostas no formato JSON.
+
+Exemplo retorno GET produtos api.
+
+````json
+[
+	{
+		"id": 33,
+		"name": "Produto 1",
+		"categoryId": 4,
+		"supplierId": 2,
+		"description": "Descricacao Atualizada",
+		"createdAt": "2023-04-27T00:35:18.2414574",
+		"category": {
+			"id": 4,
+			"name": "Calçado",
+			"masterCategoryId": 0,
+			"masterCategory": null
+		},
+		"supplier": {
+			"id": 2,
+			"name": "Loja 1"
+		}
+	}
+]
+```
 
 ### Produtos
 
@@ -91,3 +126,4 @@ Para validar é feito a geração e comparação com uma chave utilizada para ge
 
 Foi utilizado o banco de dados SQLite junto com o Entity Framework para controlar e gerenciar os registros no banco.
 Também utilizou o recurso de migrations do EF para realizar a criação dos modelos e campos no banco de dados.
+````

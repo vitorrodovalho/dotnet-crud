@@ -1,29 +1,8 @@
 import React, { useState } from 'react';
-import { Button, FormControl, InputGroup } from 'react-bootstrap';
 
 export default function ProductList(props) {
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const handleInputChange = (e) => {
-        setSearchTerm(e.target.value);
-    };
-
-    const filteredProducts = props.products.filter((product) => {
-        return Object.values(product)
-            .join(' ')
-            .toLowerCase()
-            .includes(searchTerm.toLowerCase());
-    });
-
     return (
         <>
-            <InputGroup className="mt-3 mb-3">
-                <InputGroup.Text>Buscar:</InputGroup.Text>
-                <FormControl
-                    onChange={handleInputChange}
-                    placeholder="Buscar pelo nome do produto"
-                />
-            </InputGroup>
             <table className="table table-striped table-hover">
                 <thead className="table-dark mt-3">
                     <tr>
@@ -37,7 +16,7 @@ export default function ProductList(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredProducts.map((product) => (
+                    {props.products.map((product) => (
                         <tr key={product.id}>
                             <td>{product.id}</td>
                             <td>{product.name}</td>

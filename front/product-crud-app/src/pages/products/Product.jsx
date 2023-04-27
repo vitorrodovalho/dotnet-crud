@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import {
-    Button,
-    Modal,
-    ModalFooter,
-    InputGroup,
-    FormControl,
-} from 'react-bootstrap';
+import { Button, Modal, ModalFooter } from 'react-bootstrap';
 import api from '../../api/default';
 import ProductList from './ProductList';
 import ProductForm from './ProductForm';
@@ -17,7 +11,7 @@ export class Product extends Component {
             showProductModal: false,
             smShowConfirmModal: false,
             products: [],
-            product: { id: 0 },
+            product: { id: 0, name: '' },
             categories: [],
             suppliers: [],
         };
@@ -57,7 +51,9 @@ export class Product extends Component {
 
     getProducts = async () => {
         const allProducts = await this.getAllProducts();
-        if (allProducts) this.setState({ products: allProducts });
+        if (allProducts) {
+            this.setState({ products: allProducts });
+        }
     };
 
     componentDidMount() {
@@ -78,6 +74,7 @@ export class Product extends Component {
         const { products } = this.state;
         try {
             const response = await api.post('product', prod);
+            console.log(response.data);
             this.setState({
                 products: [...products, response.data],
                 showProductModal: false,
@@ -147,55 +144,11 @@ export class Product extends Component {
                     </Button>
                 </div>
 
-                <table className="table table-striped table-hover">
-                    <thead className="table-dark mt-3">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Descrição</th>
-                            <th scope="col">Categoria</th>
-                            <th scope="col">Fornecedor</th>
-                            <th scope="col">Data Criação</th>
-                            <th scope="col">Opções</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {products.map((product) => (
-                            <tr key={product.id}>
-                                <td>{product.id}</td>
-                                <td>{product.name}</td>
-                                <td>{product.description}</td>
-                                <td>{product.category.name}</td>
-                                <td>{product.supplier.name}</td>
-                                <td>{product.createdAt}</td>
-                                <td>
-                                    <div>
-                                        <button
-                                            className="btn btn-sm btn-outline-primary me-2"
-                                            onClick={() =>
-                                                this.getProduct(product.id)
-                                            }
-                                        >
-                                            <i className="fas fa-pen"></i>{' '}
-                                            Editar
-                                        </button>
-                                        <button
-                                            className="btn btn-sm btn-outline-danger"
-                                            onClick={() =>
-                                                this.handleConfirmModal(
-                                                    product.id
-                                                )
-                                            }
-                                        >
-                                            <i className="fas fa-trash"></i>{' '}
-                                            Deletar
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                <ProductList
+                    products={products}
+                    getProduct={(id) => this.getProduct(id)}
+                    handleConfirmModal={(id) => this.handleConfirmModal(id)}
+                ></ProductList>
 
                 <Modal
                     show={showProductModal}

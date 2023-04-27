@@ -9,7 +9,6 @@ using ProductCrud.API.Models;
 
 namespace ProductCrud.API.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class SupplierController : ControllerBase

@@ -1,30 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
-import { Button, FormControl, InputGroup } from 'react-bootstrap';
 
 export default function SupplierList(props) {
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const handleInputChange = (e) => {
-        setSearchTerm(e.target.value);
-    };
-
-    const filteredSuppliers = props.suppliers.filter((supplier) => {
-        return Object.values(supplier)
-            .join(' ')
-            .toLowerCase()
-            .includes(searchTerm.toLowerCase());
-    });
-
     return (
         <>
-            <InputGroup className="mt-3 mb-3">
-                <InputGroup.Text>Buscar:</InputGroup.Text>
-                <FormControl
-                    onChange={handleInputChange}
-                    placeholder="Buscar pelo nome do fornecedor"
-                />
-            </InputGroup>
             <table className="table table-striped table-hover">
                 <thead className="table-dark mt-3">
                     <tr>
@@ -34,7 +12,7 @@ export default function SupplierList(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredSuppliers.map((supplier) => (
+                    {props.suppliers.map((supplier) => (
                         <tr key={supplier.id}>
                             <td>{supplier.id}</td>
                             <td>{supplier.name}</td>
